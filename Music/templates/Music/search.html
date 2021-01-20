@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body class="bg-dark">
+{% load static %}
+<!-- ------------------------------------------------------ TOP BAR ------------------------------------------------------------------------ -->
+<a name="Nav">
+    {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <a class="navbar-brand" href="{% url 'home' %}">{{user.username}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+        {% endif %}
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="{% url 'home' %}">HOME</a>
+            </li>
+
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MUSIC-DATA
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'library' %}">LIBRARY</a>
+            <a class="dropdown-item" href="#">SUBSCRIPTIONS</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">SETTING</a>
+            </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="{% url 'contact' %}">CONTACT</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="../logout">LOGOUT</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" method="get" action="/Music/search/">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search" id="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+      </a>
+<!-- ------------------------------------------------------ TEXT ------------------------------------------------------------------------ -->
+      <br><br><hr><hr>
+
+ <!-- ------------------------------------------------------ Embed ------------------------------------------------------------------------ -->
+
+<div style="width: 100%;overflow:hidden">
+    <div style="float:left; width: 60%; border:1px solid black;  margin-left:10px ;height:400px">
+        <img src='{{img.image.url}}' height="400px" width="100%" style="object-fit: cover" alt="missing">
+    </div>
+    <div style="float:right; width:35% ;overflow:scroll ;height:400px " class="active">
+            <table class="table table-hover table-warning">
+            <tbody>
+            <tr>
+                <td>
+                    <form style="height:35px;border-width:0;width:100%" method="get" action="/Music/search/">
+                        <button id="search" style="height:100%;border-width:0;width:100%" type="submit" value="{{product}}" name="search" >
+                            {{product}}</button>
+                    </form>
+                </td>
+            </tr>
+            {% for i in movie %}
+            <tr>
+                <td>
+                    <form style="height:35px;border-width:0;width:100%" method="get" action="/Music/search/">
+                        <button id="search" style="height:100%;border-width:0;width:100%" type="submit" value="{{i}}" name="search" >
+                            {{i}}</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+    </div>
+</div>
+<br><br><hr>
+
+<!-- ------------------------------------------------------  ------------------------------------------------------------------------ -->
+
+<!-- ------------------------------------------------------ CARD ------------------------------------------------------------------------ -->
+
+      <hr>
+              <div class="card-deck " style="align: center">
+          <div class="card" style="width: 15rem;">
+  <img src='{% static "Music/Prateek.jpg"%}' class="card-img-top" alt="missing">
+  <div class="card-body bg-secondary">
+    <h5 class="card-title text-white" align="center">Prateek</h5>
+    <p class="card-text"></p>
+    <details class="btn btn-dark" style="width:100%">
+  <summary width="100%" align="center">Developer</summary><br>
+  <p><ul type="none" align="left">
+        <li><a href="mailto:jain22719@gmail.com" class="text-white"><img src="https://img.icons8.com/color/48/000000/gmail-login.png" alt="missing"> Gmail</a></li>
+        <li><a href="https://www.linkedin.com/in/prateek-jain-a4b964126/" class="text-white"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="missing"> Linkedin</a></li>
+        <li><a href="https://www.instagram.com/1_prateek_jain_1/" class="text-white"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="missing"> Insta</a></li>
+    </ul></p>
+</details>
+  </div>
+</div>
+
+      <div class="card bg-secondary" style="width: 15rem;">
+  <img src='{% static "Music/Ritik.jpg"%}' class="card-img-top" alt="missing">
+  <div class="card-body">
+    <h5 class="card-title text-white" align="center">Ritika</h5>
+    <p class="card-text"></p>
+    <details class="btn btn-dark" style="width:100%">
+  <summary>Developer</summary><br>
+  <p><ul type="none" align="left">
+        <li><a href="mailto:ritikachaudhary1507@gmail.com" class="text-white"><img src="https://img.icons8.com/color/48/000000/gmail-login.png" alt="missing"> Gmail</a></li>
+        <li><a href="https://www.linkedin.com/in/ritika-chaudhary-72a551166/" class="text-white"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="missing"> Linkedin</a></li>
+        <li><a href="https://www.instagram.com/__ritika_chaudhary__/" class="text-white"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="missing"> Insta</a></li>
+    </ul></p>
+</details>
+  </div>
+</div>
+      <div class="card bg-secondary" style="width: 15rem;">
+  <img src='{% static "Music/Prateek.jpg"%}' class="card-img-top" alt="missing">
+  <div class="card-body">
+    <h5 class="card-title text-white" align="center">mridul</h5>
+    <p class="card-text"></p>
+    <details class="btn btn-dark" style="width:100%">
+  <summary>Developer</summary><br>
+  <p><ul type="none" align="left">
+        <li><a href="mailto:JAINMRIDUL82@gmail.com" class="text-white"><img src="https://img.icons8.com/color/48/000000/gmail-login.png" alt="missing"> Gmail</a></li>
+        <li><a href="#" class="text-white"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="missing"> Linkedin</a></li>
+        <li><a href="https://www.instagram.com/mridul4583/" class="text-white"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="missing"> Insta</a></li>
+    </ul></p>
+</details>
+  </div>
+</div>
+      <div class="card bg-secondary" style="width: 15rem;">
+  <img src='{% static "Music/Priya.jpg"%}' class="card-img-top" alt="missing">
+  <div class="card-body">
+    <h5 class="card-title text-white" align="center">priya</h5>
+    <p class="card-text"></p>
+    <details class="btn btn-dark" style="width:100%">
+  <summary>Web Designer</summary><br>
+  <p><ul type="none" align="left">
+        <li><a href="#" class="text-white"><img src="https://img.icons8.com/color/48/000000/gmail-login.png" alt="missing"> Gmail</a></li>
+        <li><a href="#" class="text-white"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="missing"> Linkedin</a></li>
+        <li><a href="https://www.instagram.com/priyabansal_11/" class="text-white"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="missing"> Insta</a></li>
+    </ul></p>
+</details>
+  </div>
+</div>
+      <div class="card bg-secondary" style="width: 15rem;">
+  <img src='{% static "Music/Rushil.jpg"%}' class="card-img-top" alt="missing">
+  <div class="card-body">
+    <h5 class="card-title text-white" align="center">rushil</h5>
+    <p class="card-text"></p>
+      <details class="btn btn-dark" style="width:100%">
+  <summary>Web Designer</summary><br>
+  <p><ul type="none" align="left">
+        <li><a href="mailto:rushilgoel99@gmail.com" class="text-white"><img src="https://img.icons8.com/color/48/000000/gmail-login.png" alt="missing"> Gmail</a></li>
+        <li><a href="https://www.linkedin.com/in/rushil-goel-a2398a18b" class="text-white"><img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="missing"> Linkedin</a></li>
+        <li><a href="https://www.instagram.com/rushil_goel/" class="text-white"><img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="missing"> Insta</a></li>
+    </ul></p>
+</details>
+  </div>
+</div>
+</div>
+
+<br><br>
+
+<!-- --------------------------------------------------- FOOTER --------------------------------------------------------------------------- -->
+      <div class="card text-center text-white shadow p-3 mb-5 bg-secondary rounded">
+  <div class="card-body">
+    <h5 class="card-title">Special title treatment</h5>
+    <p class="card-text">Copy-Right @2016</p>
+    <a href="#Nav" class="btn btn-info">Top</a>
+  </div>
+
+</div>
+
+</body>
+</html>

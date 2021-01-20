@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <meta charset="utf-8">
+  <title>About</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
+
+  <!-- Favicons -->
+  <link href='{% static "Music/about/img/favicon.png"%}' rel="icon">
+  <link href='{% static "Music/about/img/apple-touch-icon.png"%}' rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+  <!-- Bootstrap CSS File -->
+  <link href='{% static "Music/about/lib/bootstrap/css/bootstrap.min.css"%}' rel="stylesheet">
+
+  <!-- Libraries CSS Files -->
+  <link href='{% static "Music/about/lib/font-awesome/css/font-awesome.min.css"%}' rel="stylesheet">
+  <link href='{% static "Music/about/lib/animate/animate.min.css"%}' rel="stylesheet">
+  <link href='{% static "Music/about/lib/ionicons/css/ionicons.min.css"%}' rel="stylesheet">
+  <link href='{% static "Music/about/lib/owlcarousel/assets/owl.carousel.min.css"%}' rel="stylesheet">
+  <link href='{% static "Music/about/lib/lightbox/css/lightbox.min.css"%}' rel="stylesheet">
+
+  <!-- Main Stylesheet File -->
+  <link href='{% static "Music/about/css/style.css"%}' rel="stylesheet">
+
+  </head>
+
+<body>
+{% load static %}
+
+  <a name="Nav">
+      {% if user.is_authenticated %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">{{user.username}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+        {% endif %}
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+            <a class="nav-link" href="/Music/home">HOME</a>
+            </li>
+
+            <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            MUSIC-DATA
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'library' %}">LIBRARY</a>
+            <a class="dropdown-item" href="#">SUBSCRIPTIONS</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">SETTING</a>
+            </div>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link" href="/Music/about">ABOUT</a>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="/Music/contact">CONTACT</a>
+            </li>
+            </li>
+            <li class="nav-item">
+            <a class="nav-link " href="../logout">LOGOUT</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+      </a>
+    <!--==========================
+      About Us Section
+    ============================-->
+    <section id="about">
+      <div class="container">
+
+        <header class="section-header">
+          <h3>About Us</h3>
+          <p>We provides different categories of music according to the person mood and also recommends different music.</p>
+        </header>
+
+        <div class="row about-container">
+
+          <div class="col-lg-6 content order-lg-1 order-2">
+            <p>
+              Music is an art form and cultural activity whose medium is sound organized in time. General definitions of music include common elements such as pitch, rhythm, dynamics , and the sonic qualities of timbre and texture.
+            </p>
+
+            <div class="icon-box wow fadeInUp">
+              <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+              <h4 class="title"><a href="">Rhythm</a></h4>
+              <p class="description">Rhythm is the arrangement of sounds and silences in time</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.2s">
+              <div class="icon"><i class="fa fa-photo"></i></div>
+              <h4 class="title"><a href="">Texture</a></h4>
+              <p class="description">Musical texture is the overall sound of a piece of music. The texture of a piece is determined by how the melodic, rhythmic are combined to determining the overall nature of the sound in a piece</p>
+            </div>
+
+            <div class="icon-box wow fadeInUp" data-wow-delay="0.4s">
+              <div class="icon"><i class="fa fa-bar-chart"></i></div>
+              <h4 class="title"><a href="">Expression</a></h4>
+              <p class="description">Expressive qualities are those elements in music that create change in music without changing the main pitches or substantially changing the rhythms of the melody and its accompaniment.</p>
+            </div>
+
+          </div>
+
+          <div class="col-lg-6 background order-lg-2 order-1 wow fadeInUp">
+            <img src='{% static "Music/about/img/music1.jpg"%}' class="img-fluid" alt="">
+          </div>
+        </div>
+
+        <div class="row about-extra">
+          <div class="col-lg-6 wow fadeInUp">
+            <img src='{% static "Music/about/img/music2.jpg"%}' class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6 wow fadeInUp pt-5 pt-lg-0">
+            <h4>What Music Actually Represents</h4>
+            <p>
+              Music can be divided into genres and genres can be further divided into subgenres, although the dividing lines and relationships between music genres are often subtle, sometimes open to personal interpretation, and occasionally controversial.
+            </p>
+            <p>
+              There are a surprising number of pop, rock, and country songs dedicated to music, songs, songwriting, and singing. Many of them are classics. Others lament the direction that popular music is taking.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section><!-- #about -->
+
+
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+  <!-- Uncomment below i you want to use a preloader -->
+  <!-- <div id="preloader"></div> -->
+
+  <!-- JavaScript Libraries -->
+  <script src='{% static "Music/about/lib/jquery/jquery.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/jquery/jquery-migrate.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/bootstrap/js/bootstrap.bundle.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/easing/easing.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/mobile-nav/mobile-nav.js"%}'></script>
+  <script src='{% static "Music/about/lib/wow/wow.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/waypoints/waypoints.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/counterup/counterup.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/owlcarousel/owl.carousel.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/isotope/isotope.pkgd.min.js"%}'></script>
+  <script src='{% static "Music/about/lib/lightbox/js/lightbox.min.js"%}'></script>
+  <!-- Contact Form JavaScript File -->
+  <script src='{% static "Music/about/contactform/contactform.js"%}'></script>
+
+  <!-- Template Main Javascript File -->
+  <script src='{% static "Music/about/js/main.js"%}'></script>
+
+</body>
+</html>
